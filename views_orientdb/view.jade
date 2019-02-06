@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+    body
+        h1 Server Side Javascript
+        ul
+            each topic in topics
+                li
+                    //jade 에서는 앞에 - 가 붙으면 자바스크립트로 인식한다
+                    - rid = encodeURIComponent(topic['@rid'])
+                    a(href='/topic/'+rid)=topic.title
+        article
+            if topic
+                h2=topic.title
+                =topic.description
+            else
+                h2 Welcome
+                | 환영합니다.
+
+
